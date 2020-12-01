@@ -1,0 +1,33 @@
+{% load markdown_extras %}
+
+<head>
+    <title>{{blogpost.title}}</title>
+</head>
+
+<body>
+    <div>
+        <h1>{{ blogpost.title }}</h1>
+        {{ blogpost.content | markdown | safe}}    
+    </div>
+    <br/>
+    <div>
+        <ul>
+            {% if blogpost.get_previous_by_created_time %}
+            <li>
+                <a href="{% url 'blog:detail' blogpost.get_previous_by_created_time.slug %}">
+                    See Previous Post "{{blogpost.get_previous_by_created_time.title}}"
+                </a>
+            </li>
+                {% endif %}
+            <li>
+                <a href="{% url 'blog:all' %}">All Blog Posts</a>
+            </li>
+            {% if blogpost.get_next_by_created_time %}
+            <li>
+                <a href="{% url 'blog:detail' blogpost.get_next_by_created_time.slug %}">
+                     See Next Post "{{blogpost.get_next_by_created_time.title}}"
+                </a>
+            </li>
+        {% endif %}
+    </div>
+</body>

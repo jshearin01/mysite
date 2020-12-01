@@ -1,0 +1,22 @@
+{% load markdown_extras %}
+
+<head>
+    <title>Blog Posts</title>
+</head>
+
+<body>
+    <div>
+    <h1>
+        Blog Posts
+    </h1>
+    {% if blogpost_list %}
+        {% for blogpost in blogpost_list %}
+            <div>
+                <a href="{% url 'blog:detail' blogpost.slug %}"><h2>{{ blogpost.title }}</h2></a>
+                <p>{{blogpost.created_time.date}}, {{blogpost.created_time.time}}</p>
+                {{ blogpost.content | markdown | safe}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</body>
