@@ -32,5 +32,5 @@ if settings.DEBUG:
     # static files (images, css, javascript, etc.)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     
-'''handler404 = 'home.views.handler404'
-handler500 = 'home.views.handler500'''
+handler404 = 'home.views.handler404'
+handler500 = 'home.views.handler500'

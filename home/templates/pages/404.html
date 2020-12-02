@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,64 +5,57 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Page Not Found</title>
+  <title>Page Not Found</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
-        type='text/css'>
-    <link
-        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-        rel='stylesheet' type='text/css'>
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
 </head>
 
 <body>
-    
-    <header class="masthead" style="background-image: url({% static 'img/404-image.jpg' %})">
-      <div class="overlay">
+  <header class="background" style="background-image: url({% static 'img/404-image.jpg' %});">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <button type="button" class="btn btn-primary btn-lg" onclick="javascript:history.go(-1);">
+        Go Back
+        </button>
+        </div>
       </div>
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <button 
-                class="display-1" 
-                style="background-color: black; opacity: 0.2; text-color: white; padding-left:.2em"
-                onclick="javascript:history.go(-1);"
-              >
-                Go Back
-              </button>
-            </div>
-          </div>
-      </div>
-    </header>
-
-    <!-- Footer -->
+    </div>
+  </header>
+  <!-- Footer -->
+  <div>
     <p class="copyright text-muted" align="center" style="font-size: .2rem">
       <a href="https://www.freepik.com/vectors/web">Web vector created by stories - www.freepik.com</a>
     </p>
+  </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="{% static 'js/clean-blog.min.js' %}"></script>
-    <!-- Tooltip jquery script-->
-    <script>$("[data-toggle=tooltip").tooltip();</script>
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/clean-blog.min.js' %}"></script>
+  <!-- Tooltip jquery script-->
+  <script>$("[data-toggle=tooltip").tooltip();</script>
 
 </body>
 
 </html>
-

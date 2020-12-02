@@ -1,0 +1,87 @@
+
+header.background {
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header.background .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: 0.6;
+}
+header.background .page-heading,
+header.background .post-heading,
+header.background .site-heading {
+  padding: 200px 0 150px;
+  color: #fff;
+}
+@media only screen and (min-width: 768px) {
+  header.background .page-heading,
+  header.background .post-heading,
+  header.background .site-heading {
+    padding: 200px 0;
+  }
+}
+header.background .page-heading,
+header.background .site-heading {
+  text-align: center;
+}
+header.background .page-heading h1,
+header.background .site-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+header.background .page-heading .subheading,
+header.background .site-heading .subheading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media only screen and (min-width: 768px) {
+  header.background .page-heading h1,
+  header.background .site-heading h1 {
+    font-size: 80px;
+  }
+}
+header.background .post-heading h1 {
+  font-size: 35px;
+}
+header.background .post-heading .meta,
+header.background .post-heading .subheading {
+  line-height: 1.1;
+  display: block;
+}
+header.background .post-heading .subheading {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0 30px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+header.background .post-heading .meta {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  font-family: Lora, "Times New Roman", serif;
+}
+header.background .post-heading .meta a {
+  color: #fff;
+}
+@media only screen and (min-width: 768px) {
+  header.background .post-heading h1 {
+    font-size: 55px;
+  }
+  header.background .post-heading .subheading {
+    font-size: 30px;
+  }
+}
