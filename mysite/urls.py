@@ -15,9 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import handler404, handler500
+
 
 urlpatterns = [
     path('',include('home.urls')),
     path('admin/', admin.site.urls),
     path('blog/',include('blog.urls')),
-]
+    path('mdeditor/', include('mdeditor.urls')),
+    ]
+
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+'''handler404 = 'home.views.handler404'
+handler500 = 'home.views.handler500'''

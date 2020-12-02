@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <embed src="{{ resume.file.url }}" type="application/pdf" height="1050px" width="750">
+    </div>
+    <div class="container" align="center">
+    {% include 'partials/footer.html' %}
+    </div>
+</div>
+
+{% endblock %}

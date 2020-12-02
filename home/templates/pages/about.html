@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
+{% load markdown_extras %}
 
 {% block content %}
-{{ aboutpage.content | markdown | safe}}
+<div class="jumbotron">
+    <div class="container" align="center">
+        {{ aboutpage.content | markdown | safe}}
+    </div>
+    {% include 'partials/footer.html' %}
+</div>
 {% endblock %}

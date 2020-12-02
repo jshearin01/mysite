@@ -1,33 +1,37 @@
+{% extends 'base.html '%}
 {% load markdown_extras %}
+
+
+{% block content %}
 
 <head>
     <title>{{blogpost.title}}</title>
 </head>
 
-<body>
-    <div>
-        <h1>{{ blogpost.title }}</h1>
-        {{ blogpost.content | markdown | safe}}    
+<div class="jumbotron">
+    <div align="center">
+        <div class="card border-primary mb-3" align="center" style="max-width: 80%">
+            <div class="card-header">
+                <h1 class="card-title">
+                    <a href="{% url 'blog:detail' blogpost.slug %}">
+                        {{ blogpost.title }}
+                    </a>
+                </h1>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    {{blogpost.created_time.date}}
+                </h4>
+                <p class="card-text" style="font-size: 20px;">
+                    {{ blogpost.content | markdown | safe | truncatewords:50  }}
+                </p>
+            </div>
+        </div>
+    </div>  
+    <div class="col-lg-8 col-md-10 mx-auto" align="center">
+        {% include 'blog/blog_footer.html' %}
     </div>
-    <br/>
-    <div>
-        <ul>
-            {% if blogpost.get_previous_by_created_time %}
-            <li>
-                <a href="{% url 'blog:detail' blogpost.get_previous_by_created_time.slug %}">
-                    See Previous Post "{{blogpost.get_previous_by_created_time.title}}"
-                </a>
-            </li>
-                {% endif %}
-            <li>
-                <a href="{% url 'blog:all' %}">All Blog Posts</a>
-            </li>
-            {% if blogpost.get_next_by_created_time %}
-            <li>
-                <a href="{% url 'blog:detail' blogpost.get_next_by_created_time.slug %}">
-                     See Next Post "{{blogpost.get_next_by_created_time.title}}"
-                </a>
-            </li>
-        {% endif %}
-    </div>
-</body>
+</div>
+
+
+    {% endblock %}

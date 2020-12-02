@@ -1,0 +1,19 @@
+{% load static %}
+
+<header class="masthead" style="background-image: url({% static 'img/cover_photo.jpg' %})">
+  <div class="overlay">
+  </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <button 
+            class="display-1" 
+            style="background-color: white; opacity: 0.5; padding-left:.2em"
+            onclick="location.href='{% url 'home:resume' %}'"
+          >
+            John Shearin
+          </button>
+        </div>
+      </div>
+  </div>
+</header>

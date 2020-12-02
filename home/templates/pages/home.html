@@ -2,5 +2,12 @@
 {% load markdown_extras %}
 
 {% block content %}
-{{ homepage.content | markdown | safe }}
+{% include '../partials/home_header.html'%}
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        {{ homepage.content | markdown | safe }}
+    </div>
+</div>
+{% include 'partials/footer.html' %}
 {% endblock %}
