@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 MDEDITOR_CONFIGS = {
     'default':{
         'width': '90% ',  # Custom edit box width
-        'heigth': 500,  # Custom edit box height
+        'height': 500,  # Custom edit box height
         'toolbar': ["undo", "redo", "|",
                     "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                     "h1", "h2", "h3", "h5", "h6", "|",
@@ -108,7 +108,7 @@ MDEDITOR_CONFIGS = {
         'flow_chart': True,  # whether to open the flow chart function
         'sequence': True, # Whether to open the sequence diagram function
         'watch': True,  # Live preview
-        'lineWrapping': False,  # lineWrapping
+        'lineWrapping': True,  # lineWrapping
         'lineNumbers': False,  # lineNumbers
         'language': 'en' #english hover text
     }
