@@ -14,11 +14,20 @@ def rand_slug():
 
 
 class BlogPost(models.Model):
+    PUBLISHED = 'PUB'
+    DRAFT = 'DRA'
+    PUBLISH_CHOICES = (
+        (PUBLISHED,'Publish'),
+        (DRAFT,'Save as Draft')
+    )
     title = models.CharField(max_length=255)
     content = MDTextField()
     slug = models.SlugField(max_length=255, unique=True)
     created_time = models.DateTimeField(auto_created=True)
-
+    published = models.CharField(
+                max_length=3,
+                choices=PUBLISH_CHOICES,
+                default=DRAFT)
     def __str__(self):
         return self.title
 

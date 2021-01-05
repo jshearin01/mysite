@@ -4,6 +4,7 @@
 
 {% block content %}
 
+{% if blogpost.published == 'PUB' %}
 <head>
     <title>{{blogpost.title}}</title>
 </head>
@@ -32,5 +33,7 @@
         {% include 'blog/blog_footer.html' %}
     </div>
 </div>
-
+{% else %}
+    {% include 'blog/blogpost_list.html' %}
+{% endif %}
 {% endblock %}
