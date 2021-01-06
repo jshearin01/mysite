@@ -99,7 +99,7 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 100%;
   text-align:left;
 }
 abbr[data-original-title],
@@ -6037,7 +6037,7 @@ button.bg-danger:hover {
 .bg-light {
   background-color: #fff !important;
 }
-a. -light:focus,
+a.-light:focus,
 a.bg-light:hover,
 button.bg-light:focus,
 button.bg-light:hover {
