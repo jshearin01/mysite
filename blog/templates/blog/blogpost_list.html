@@ -14,7 +14,7 @@
     {% for blogpost in blogpost_list reversed %}
     {% if blogpost.published == 'PUB' %}
       <div align="center">
-      <div class="card border-primary mb-3" align="center" style="max-width: 60%">
+      <div class="card border-primary mb-3" align="center" style="max-width: 80%">
         <div class="card-header">
           <h4 class="card-title">
             <a href="{% url 'blog:detail' blogpost.slug %}">
@@ -27,7 +27,7 @@
             {{blogpost.created_time.date}}, {{blogpost.created_time.time}}
           </h6>
           <p class="card-text">
-            {{ blogpost.content | markdown | safe | truncatewords:50  }}
+            {{ blogpost.content | markdown | safe | truncatewords:75  }}
           </p>
         </div>
         </div>
