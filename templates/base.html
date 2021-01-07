@@ -9,13 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    {% if blogpost %}
-        <meta name="twitter:title" content="{{blogpost.title}}">
-        <meta name="twitter:description" content="{{blogpost.title}}">
-        <meta name="twitter:card" content="summary">
-    {% endif %}
+    <meta name="twitter:card" content="summary">
+    {% block meta %}
+        <meta name="twitter:title" content="JohnShearin.com">
+        <meta name="twitter:description" content="John Shearin">
+    {% endblock %}
 
-    <title>JohnShearin.com</title>
+    
+    <title>
+        {% block title%}JohnShearin.com{% endblock %}
+    </title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">

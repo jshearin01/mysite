@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% load markdown_extras %}
 
+{% block meta %}
+    <meta name="twitter:title" content="{{blogpost.title}}">
+    <meta name="twitter:description" content="{{blogpost.title}}">
+{% endblock%}
+
+{% block title %}
+    {{blogpost.title}}
+{% endblock %}
+
 
 {% block content %}
 
 {% if blogpost.published == 'PUB' %}
-<head>
-    <title>{{blogpost.title}}</title>
-</head>
-
 <div class="jumbotron">
     <div align="center">
         <div class="card border-primary mb-3" align="center" style="max-width: 95%">

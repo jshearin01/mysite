@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% block meta %}
+    <meta name="twitter:title" content="Resume">
+    <meta name="twitter:description" content="View John's Resume">
+{% endblock%}
+
 <div class="jumbotron">
     <div class="container" align="center">
         <embed src="{{ resume.file.url }}" type="application/pdf" height="1050px" width="750">
