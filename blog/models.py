@@ -29,11 +29,7 @@ class BlogPost(models.Model):
         validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
         null=True,
         blank=True)
-    powerpoint = models.FileField(
-        upload_to='files',
-        validators=[FileExtensionValidator(allowed_extensions=['ppt','pptx'])],
-        null=True,
-        blank=True)
+    powerpoint = models.TextField(null=True,blank=True)
     slug = models.SlugField(max_length=255, unique=True)
     created_time = models.DateTimeField(auto_created=True)
     published = models.CharField(

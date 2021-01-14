@@ -13,20 +13,15 @@
             <div class="card-body">
             
                 <h4 class="card-title">
-                    {{blogpost.created_time.date}}
+                    {{ blogpost.created_time.date }}
                 </h4>
 
                 {% if blogpost.intro %}
-                    <p>{{ blogpost.intro}}</p>                
+                    <p>{{ blogpost.intro }}</p>                
                 {% endif %}
 
                 {% if blogpost.powerpoint %}
-                    <iframe 
-                        src="https://view.officeapps.live.com/op/embed.aspx?src={{ blogpost.powerpoint }}" 
-                        width="100%"
-                        height="100%"
-                        frameborder="0"> 
-                    </iframe>
+                    {{ blogpost.powerpoint | safe }}
                 {% endif %}
                 {{ blogpost.content | markdown | safe  }}
             </div>
