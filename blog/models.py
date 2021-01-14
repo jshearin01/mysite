@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from mdeditor.fields import MDTextField #https://developpaper.com/implementation-of-beautiful-django-markdown-rich-text-app-plug-in/
+from django.core.validators import FileExtensionValidator
 import datetime
 import string
 import random
@@ -21,7 +22,18 @@ class BlogPost(models.Model):
         (DRAFT,'Save as Draft')
     )
     title = models.CharField(max_length=255)
+    intro = models.TextField(null=True)
     content = MDTextField()
+    image = models.FileField(
+        upload_to='files',
+        validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
+        null=True,
+        blank=True)
+    powerpoint = models.FileField(
+        upload_to='files',
+        validators=[FileExtensionValidator(allowed_extensions=['ppt','pptx'])],
+        null=True,
+        blank=True)
     slug = models.SlugField(max_length=255, unique=True)
     created_time = models.DateTimeField(auto_created=True)
     published = models.CharField(

@@ -1,39 +1,41 @@
-<div class="btn-group">
-  {% if blogpost.get_previous_by_created_time %}
-  <button
-    type="button"
-    class="btn btn-secondary"
-    data-toggle="tooltip"
-    data-placement="top"
-    title=""
-    data-original-title="{{ blogpost.get_previous_by_created_time.title }}"
-    onclick="location.href='{% url 'blog:detail' blogpost.get_previous_by_created_time.slug %}'"
-  >
-    See Previous Post
-  </button>
-  {% endif %}
-  <button
-    type="button"
-    class="btn btn-secondary"
-    data-toggle="tooltip"
-    data-placement="top"
-    title=""
-    data-original-title="Go to Blog Home"
-    onclick="location.href='{% url 'blog:all' %}'"
-  >
-    All Blog Posts
-  </button>
-  {% if blogpost.get_next_by_created_time %}
-  <button
-    type="button"
-    class="btn btn-secondary"
-    data-toggle="tooltip"
-    data-placement="top"
-    title=""
-    data-original-title="{{ blogpost.get_next_by_created_time.title }}"
-    onclick="location.href='{% url 'blog:detail' blogpost.get_next_by_created_time.slug %}'"
-  >
-    See Next Post
-  </button>
-  {% endif %}
+<div class="col-lg-8 col-md-10 mx-auto" align="center">
+  <div class="btn-group">
+    {% if blogpost.get_previous_by_created_time %}
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="{{ blogpost.get_previous_by_created_time.title }}"
+      onclick="location.href='{% url 'blog:detail' blogpost.get_previous_by_created_time.slug %}'"
+    >
+      See Previous Post
+    </button>
+    {% endif %}
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="Go to Blog Home"
+      onclick="location.href='{% url 'blog:all' %}'"
+    >
+      All Blog Posts
+    </button>
+    {% if blogpost.get_next_by_created_time %}
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="{{ blogpost.get_next_by_created_time.title }}"
+      onclick="location.href='{% url 'blog:detail' blogpost.get_next_by_created_time.slug %}'"
+    >
+      See Next Post
+    </button>
+    {% endif %}
+  </div>
 </div>

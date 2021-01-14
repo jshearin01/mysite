@@ -3,7 +3,14 @@
 
 {% block meta %}
     <meta name="twitter:title" content="{{blogpost.title}}">
-    <meta name="twitter:description" content="{{blogpost.title}}">
+    <meta property="og:title" content="{{blogpost.title}}">
+    {% if blogpost.intro %}
+        <meta name="twitter:description" content="{{blogpost.intro}}">
+        <meta property="og:description" content="{{blogpost.intro}}">
+    {% else %}
+        <meta name="twitter:description" content="{{blogpost.title}}">
+        <meta property="og:description" content="{{blogpost.title}}">
+    {% endif %}
 {% endblock%}
 
 {% block title %}
@@ -14,30 +21,8 @@
 {% block content %}
 
 {% if blogpost.published == 'PUB' %}
-<div class="jumbotron">
-    <div align="center">
-        <div class="card border-primary mb-3" align="center" style="max-width: 95%">
-            <div class="card-header">
-                <h1 class="card-title">
-                    <a href="{% url 'blog:detail' blogpost.slug %}">
-                        {{ blogpost.title }}
-                    </a>
-                </h1>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">
-                    {{blogpost.created_time.date}}
-                </h4>
-                <p class="card-text" style="font-size: 20px; text-align:left">
-                    {{ blogpost.content | markdown | safe  }}
-                </p>
-            </div>
-        </div>
-    </div>  
-    <div class="col-lg-8 col-md-10 mx-auto" align="center">
-        {% include 'blog/blog_footer.html' %}
-    </div>
-</div>
+    {% include 'blog/blog_content.html' %}
+    {% include 'blog/blog_footer.html' %}
 {% else %}
     {% include 'blog/blogpost_list.html' %}
 {% endif %}

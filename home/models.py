@@ -1,6 +1,8 @@
 from django.db import models
 from mdeditor.fields import MDTextField #https://developpaper.com/implementation-of-beautiful-django-markdown-rich-text-app-plug-in/
-from .validators import validate_file_extension
+from django.core.validators import FileExtensionValidator
+
+
 # Create your models here.
 
 class HomePage(models.Model):
@@ -13,5 +15,5 @@ class AboutPage(models.Model):
 
 class Resume(models.Model):
     title = models.CharField(max_length=100)
-    file = models.FileField(upload_to='files',validators=[validate_file_extension])
+    file = models.FileField(upload_to='files',validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     objects = models.Manager()
