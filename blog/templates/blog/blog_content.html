@@ -15,7 +15,7 @@
                 <h4 class="card-title">
                     {{ blogpost.created_time.date }}
                 </h4>
-
+                
                 {% if blogpost.intro %}
                     <p>{{ blogpost.intro }}</p>                
                 {% endif %}
@@ -24,9 +24,10 @@
                     {{ blogpost.powerpoint | safe }}
                 {% endif %}
 
-                {% if blogpost.persona_set.all().exists() %}
+                {% if blogpost.persona_set.count %}
                     <br/>
                     <h3>Product User Personas</h3>
+                    <br/>
                     {% include 'blog/blog_personas.html'%}
                 {% endif %}
                 
