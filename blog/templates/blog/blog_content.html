@@ -24,8 +24,9 @@
                     {{ blogpost.powerpoint | safe }}
                 {% endif %}
 
-                {% if blogpost.persona_set %}
+                {% if blogpost.persona_set.all().exists() %}
                     <br/>
+                    <h3>Product User Personas</h3>
                     {% include 'blog/blog_personas.html'%}
                 {% endif %}
                 
