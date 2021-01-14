@@ -24,11 +24,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=255)
     intro = models.TextField(null=True)
     content = MDTextField()
-    image = models.FileField(
-        upload_to='files',
-        validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
-        null=True,
-        blank=True)
+    image = models.ImageField(upload_to='files',blank=True,null=True)
     powerpoint = models.TextField(null=True,blank=True)
     slug = models.SlugField(max_length=255, unique=True)
     created_time = models.DateTimeField(auto_created=True)
@@ -49,3 +45,13 @@ class BlogPost(models.Model):
             super(BlogPost, self).save(*args, **kwargs)
 
     objects = models.Manager()
+
+
+class Persona(models.Model):
+    name = models.CharField(max_length=40)
+    title = models.CharField(max_length=40, null=True,blank=True)
+    image = models.ImageField(upload_to='files',blank=True,null=True)
+    content = MDTextField()
+    blog = models.ForeignKey(BlogPost, on_delete=models.SET_NULL, null=True, blank=True)
+    objects = models.Manager()
+

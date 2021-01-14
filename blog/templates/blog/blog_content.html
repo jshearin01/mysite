@@ -23,6 +23,13 @@
                 {% if blogpost.powerpoint %}
                     {{ blogpost.powerpoint | safe }}
                 {% endif %}
+
+                {% if blogpost.persona_set %}
+                    <h3 class="card-title">Product Personas</h3>
+                    <br/>
+                    {% include 'blog/blog_personas.html'%}
+                {% endif %}
+                
                 {{ blogpost.content | markdown | safe  }}
             </div>
         </div>

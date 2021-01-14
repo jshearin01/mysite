@@ -1,0 +1,21 @@
+{% load markdown_extras %}
+
+{% for persona in blogpost.persona_set.all %}
+<div class="card mb-3" style="width: 40%">
+    <h3 class="card-header text-white bg-info">{{ persona.name }}</h3>
+    {% if persona.title %}
+        <div class="card-body">
+            <h5 class="card-title">{{ persona.title }}</h5>
+        </div>
+    {% endif %}
+    {% if persona.image %}
+        <div class="card-body">
+            <img src="{{ persona.image }}" alt="{{ persona.title }}"/> 
+        </div>
+    {% endif %}
+    <div class="card-body">
+        {{ persona.content }}
+    </div>
+</div>
+<br/>
+{% endfor %}

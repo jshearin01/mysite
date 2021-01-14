@@ -37,7 +37,11 @@
             {{blogpost.created_time.date}}, {{blogpost.created_time.time}}
           </h6>
           <p class="card-text">
-            {{ blogpost.content | markdown | safe | truncatewords:75  }}
+            {% if blogpost.intro %}
+              {{ blogpost.intro | truncatewords:75 }}
+            {% else %}
+              {{ blogpost.content | markdown | safe | truncatewords:75  }}
+            {% endif %}
           </p>
         </div>
         </div>
