@@ -1,29 +1,39 @@
 {% extends 'base.html' %}
-{% load markdown_extras %}
+
 
 {% block meta %}
-    <meta name="twitter:title" content="{{blogpost.title}}">
-    <meta property="og:title" content="{{blogpost.title}}">
-    {% if blogpost.intro %}
-        <meta name="twitter:description" content="{{blogpost.intro}}">
-        <meta property="og:description" content="{{blogpost.intro}}">
+    {% if user.is_superuser or blogpost.published == 'PUB' %}
+        <meta name="twitter:title" content="{{blogpost.title}}">
+        <meta property="og:title" content="{{blogpost.title}}">
+        {% if blogpost.intro %}
+            <meta name="twitter:description" content="{{blogpost.intro}}">
+            <meta property="og:description" content="{{blogpost.intro}}">
+        {% else %}
+            <meta name="twitter:description" content="{{blogpost.title}}">
+            <meta property="og:description" content="{{blogpost.title}}">
+        {% endif %}
     {% else %}
-        <meta name="twitter:description" content="{{blogpost.title}}">
-        <meta property="og:description" content="{{blogpost.title}}">
+        <meta http-equiv="REFRESH" content="1;url={% url 'home:home_page' %}">
     {% endif %}
 {% endblock%}
 
 {% block title %}
-    {{blogpost.title}}
+    {% if user.is_superuser or blogpost.published == 'PUB' %}
+        {{blogpost.title}}
+    {% endif %}
 {% endblock %}
 
-
 {% block content %}
-
-{% if blogpost.published == 'PUB' %}
-    {% include 'blog/blog_content.html' %}
-    {% include 'blog/blog_footer.html' %}
-{% else %}
-    {% include 'blog/blogpost_list.html' %}
-{% endif %}
+    {% if user.is_superuser or blogpost.published == 'PUB' %}
+        {% include 'blog/blog_content.html' %}
+        {% include 'blog/blog_footer.html' %}
+    {% else %}
+    <div style="text-align: center">
+        </br>
+        <h1>THIS PAGE DOES NOT EXIST.</h1>
+        </br>
+        <h1>REDIRECTING TO HOME PAGE.</h1>
+        </br>
+    </div>
+    {% endif %}
 {% endblock %}

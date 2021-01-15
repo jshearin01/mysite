@@ -1,0 +1,25 @@
+{% load markdown_extras %}
+
+<div align="center">
+      <div class="card border-primary mb-3" align="center" style="max-width: 80%">
+        <div class="card-header">
+          <h4 class="card-title">
+            <a href="{% url 'blog:detail' blogpost.slug %}">
+              {{ blogpost.title }}
+            </a>
+          </h4>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">
+            {{blogpost.created_time.date}}, {{blogpost.created_time.time}}
+          </h6>
+          <p class="card-text">
+            {% if blogpost.intro %}
+              {{ blogpost.intro | truncatewords:75 }}
+            {% else %}
+              {{ blogpost.content | markdown | safe | truncatewords:75 }}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>

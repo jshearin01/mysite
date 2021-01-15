@@ -1,56 +1,18 @@
 {% extends 'base.html' %}
-{% load markdown_extras %}
 
 
 {% block meta %}
-    <meta name="twitter:title" content="Blogs - JohnShearin.com">
-    <meta name="twitter:description" content="Blogs written by John Shearin">
+<meta name="twitter:title" content="Blogs - JohnShearin.com">
+<meta name="twitter:description" content="Blogs written by John Shearin">
 {% endblock%}
 
 {% block title %}
-    Blogs - JohnShearin.com
+Blogs - JohnShearin.com
 {% endblock %}
 
 {% block content %}
-
 <head>
   <title>Blog Posts</title>
 </head>
-
-<div class="jumbotron">
-  <div class="container-fluid">
-    <h1 class="display-4" align="center">Blog Posts</h1>
-    </br>
-    </br>
-    {% if blogpost_list %}
-    {% for blogpost in blogpost_list reversed %}
-    {% if blogpost.published == 'PUB' %}
-      <div align="center">
-      <div class="card border-primary mb-3" align="center" style="max-width: 80%">
-        <div class="card-header">
-          <h4 class="card-title">
-            <a href="{% url 'blog:detail' blogpost.slug %}">
-              {{ blogpost.title }}
-            </a>
-          </h4>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title">
-            {{blogpost.created_time.date}}, {{blogpost.created_time.time}}
-          </h6>
-          <p class="card-text">
-            {% if blogpost.intro %}
-              {{ blogpost.intro | truncatewords:75 }}
-            {% else %}
-              {{ blogpost.content | markdown | safe | truncatewords:75  }}
-            {% endif %}
-          </p>
-        </div>
-        </div>
-      </div>
-    {% endif %}
-    {% endfor %}
-    {% endif %}
-  </div>
-</div>
-  {% endblock %}
+{% include 'blog/blog_listall.html' %}
+{% endblock %}
