@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
+
     {% block meta %}
         <meta name="twitter:title" content="JohnShearin.com">
         <meta name="twitter:description" content="John Shearin">
@@ -33,6 +34,16 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7NQ5H8CJL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-X7NQ5H8CJL');
+    </script>
 
 </head>
 
