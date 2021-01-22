@@ -1,6 +1,6 @@
 <div class="col-lg-8 col-md-10 mx-auto" align="center">
   <div class="btn-group">
-    {% if blogpost.get_previous_by_created_time %}
+    {% if blogpost.get_previous_by_created_time.published == 'PUB' %}
     <button
       type="button"
       class="btn btn-secondary"
@@ -24,7 +24,7 @@
     >
       All Blog Posts
     </button>
-    {% if blogpost.get_next_by_created_time %}
+    {% if blogpost.get_next_by_created_time.published == 'PUB' %}
     <button
       type="button"
       class="btn btn-secondary"
