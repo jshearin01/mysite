@@ -1,0 +1,41 @@
+<div class="col-lg-8 col-md-10 mx-auto" align="center">
+  <div class="btn-group">
+    {% if note.get_previous_by_created_time %}
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="{{ note.get_previous_by_created_time.title }}"
+      onclick="location.href='{% url 'notes:detail' note.get_previous_by_created_time.slug %}'"
+    >
+      Previous Note
+    </button>
+    {% endif %}
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="Go to Notes Home"
+      onclick="location.href='{% url 'notes:all' %}'"
+    >
+      All Notes
+    </button>
+    {% if note.get_next_by_created_time %}
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="{{ note.get_next_by_created_time.title }}"
+      onclick="location.href='{% url 'notes:detail' note.get_next_by_created_time.slug %}'"
+    >
+      Next Note
+    </button>
+    {% endif %}
+  </div>
+</div>

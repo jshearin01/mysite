@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','stormy-brushlands-31612.herokuapp.com','johnshearin.com']
 
@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     'storages',
 
     #project apps
+    'notes',
     'blog',
     'home',
+    
 ]
 
 MIDDLEWARE = [

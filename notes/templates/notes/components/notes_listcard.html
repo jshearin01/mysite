@@ -1,0 +1,21 @@
+{% load markdown_extras %}
+
+<div align="center">
+      <div class="card border-primary mb-3" align="center" style="max-width: 80%">
+        <div class="card-header">
+          <h4 class="card-title">
+            <a href="{% url 'notes:detail' note.slug %}">
+              {{ note.title }}
+            </a>
+          </h4>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">
+            {{note.created_time.date}}, {{note.created_time.time}}
+          </h6>
+          <p class="card-text">
+              {{ note.content | markdown | safe | truncatewords:75 }}
+          </p>
+        </div>
+      </div>
+    </div>

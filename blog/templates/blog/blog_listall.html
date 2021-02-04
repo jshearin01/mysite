@@ -1,6 +1,19 @@
 <div class="jumbotron">
   <div class="container-fluid">
     <h1 class="display-4" align="center">Blog Posts</h1>
+    {% if user.is_superuser %}
+      <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="Write New Blog"
+      onclick="location.href='{% url 'admin:blog_blogpost_add' %}'"
+    >
+      Write New Blog
+    </button>
+    {% endif %}
     </br>
     </br>
     {% if blogpost_list %}
@@ -9,6 +22,8 @@
           {% include 'blog/components/blog_listcard.html' %}
         {% endif %}
       {% endfor %}
+    {% else %}
+    <div/>
     {% endif %}
   </div>
 </div>

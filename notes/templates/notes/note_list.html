@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Notes - JohnShearin.com
+{% endblock %}
+
+
+{% block meta %}
+    {% if user.is_superuser %}
+    {% else %}
+        <meta http-equiv="REFRESH" content="1;url={% url 'home:home_page' %}">
+    {% endif %}
+{% endblock%}
+
+
+{% block content %}
+{% if user.is_superuser %}
+<head>
+  <title>Notes</title>
+</head>
+{% include 'notes/notes_listall.html' %}
+{% else %}
+    <div style="text-align: center">
+        </br>
+        <h1>THIS PAGE DOES NOT EXIST.</h1>
+        </br>
+        <h1>REDIRECTING TO HOME PAGE.</h1>
+        </br>
+    </div>
+{% endif %}
+{% endblock %}

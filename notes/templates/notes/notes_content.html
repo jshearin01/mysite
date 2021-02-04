@@ -1,0 +1,41 @@
+{% load markdown_extras %}
+
+<div class="jumbotron">
+    <button
+        type="button"
+        class="btn btn-secondary"
+        data-toggle="tooltip"
+        data-placement="top"
+        title=""
+        data-original-title="Edit Note"
+        onclick="location.href='{% url 'admin:notes_note_change' note.id %}'"
+        >
+        Edit Note
+    </button>
+    </br>
+    </br>
+    <div align="center">
+        <div class="card border-primary mb-3" align="center" style="max-width: 95%">
+            <div class="card-header">
+                <h1 class="card-title">
+                    <a href="{% url 'notes:detail' note.slug %}">
+                        {{ note.title }}
+                    </a>
+                
+                </h1>
+                <h1 class="card-title">
+                </h1>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    {{ note.created_time.date }}
+                </h4>
+                {{ note.content | markdown | safe  }}
+            </div>
+        </div>
+    </div>  
+</div>
+
+                    <a href="{% url 'admin:notes_note_change' note.id %}">
+                        Edit
+                    </a>

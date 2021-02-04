@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block meta %}
+    {% if user.is_superuser %}
+    {% else %}
+        <meta http-equiv="REFRESH" content="1;url={% url 'home:home_page' %}">
+    {% endif %}
+{% endblock%}
+
+{% block title %}
+    {% if user.is_superuser %}
+        {{note.title}}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if user.is_superuser %}
+        {% include 'notes/notes_content.html' %}
+        {% include 'notes/notes_footer.html' %}
+    {% else %}
+    <div style="text-align: center">
+        </br>
+        <h1>THIS PAGE DOES NOT EXIST.</h1>
+        </br>
+        <h1>REDIRECTING TO HOME PAGE.</h1>
+        </br>
+    </div>
+    {% endif %}
+{% endblock %}

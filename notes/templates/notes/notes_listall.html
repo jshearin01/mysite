@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h1 class="display-4" align="center">Notes</h1>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title=""
+      data-original-title="Add New Note"
+      onclick="location.href='{% url 'admin:notes_note_add' %}'"
+    >
+    Add New Note
+    </button>
+    </br>
+    </br>
+    {% if note_list %}
+      {% for note in note_list reversed %}
+        {% if user.is_superuser %}
+          {% include 'notes/components/notes_listcard.html' %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+    <div/>
+    {% endif %}
+  </div>
+</div>

@@ -26,6 +26,13 @@
                 Blog
             </a>
         </li>
+        {% if user.is_superuser %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'notes:all' %}">
+                  Notes
+              </a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </nav>
