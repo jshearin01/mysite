@@ -22,7 +22,7 @@ class BlogPost(models.Model):
         (DRAFT,'Save as Draft')
     )
     title = models.CharField(max_length=255)
-    intro = models.TextField(null=True)
+    intro = models.TextField(blank=True,null=True)
     content = MDTextField()
     image = models.ImageField(upload_to='files',blank=True,null=True)
     powerpoint = models.TextField(null=True,blank=True)
