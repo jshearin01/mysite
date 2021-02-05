@@ -15,7 +15,7 @@ The folliwing fields use [Markdown](https://www.markdownguide.org/basic-syntax/)
 
 ### Markdown Implementation
 - The markdown field & admin editor are created using an MDTextField. See docs [here](https://developpaper.com/implementation-of-beautiful-django-markdown-rich-text-app-plug-in/)
-- The markdown is rendered using the markdown_extras.py template tag. See docs [here](#https://learndjango.com/tutorials/django-markdown-tutorial).
+- The markdown is rendered using the markdown_extras.py template tag. See docs [here](https://learndjango.com/tutorials/django-markdown-tutorial).
 
 
 # Clone this project
