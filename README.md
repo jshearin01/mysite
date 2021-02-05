@@ -6,16 +6,16 @@ The blog also has functionality to add Personas for writing about products and t
 The text on the site listed on the Home and About pages are both created via their own Django model.
 
 ## Markdown
-The folliwing fields use [Markdown](https://www.markdownguide.org/basic-syntax/):
+The following fields use [Markdown](https://www.markdownguide.org/basic-syntax/):
 - HomePage.content
 - AboutPage.content
 - BlogPost.content
 - Persona.content
-- Notes.content
+- Note.content
 
 ### Markdown Implementation
-- The markdown field & admin editor are created using an MDTextField. See docs [here](https://developpaper.com/implementation-of-beautiful-django-markdown-rich-text-app-plug-in/)
-- The markdown is rendered using the markdown_extras.py template tag. See docs [here](#https://learndjango.com/tutorials/django-markdown-tutorial).
+- The markdown field & admin editor are created using an MDTextField. See docs [here](https://developpaper.com/implementation-of-beautiful-django-markdown-rich-text-app-plug-in/).
+- The markdown is rendered using the markdown_extras.py template tag. See docs [here](https://learndjango.com/tutorials/django-markdown-tutorial).
 
 
 # Clone this project
