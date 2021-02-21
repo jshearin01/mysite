@@ -5,6 +5,7 @@ from .models import BlogPost, Persona
 
 class BlogListView(generic.ListView):
     model = BlogPost
+    ordering = ['-created_time']
 
 class BlogDetailView(generic.DetailView):
     model = BlogPost

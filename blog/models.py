@@ -46,6 +46,10 @@ class BlogPost(models.Model):
 
     objects = models.Manager()
 
+    class Meta:
+        ordering = ('created_time',)
+
+
 
 class Persona(models.Model):
     name = models.CharField(max_length=40)
